@@ -38,7 +38,3 @@ This project implements an autonomous robotic system using an Arduino Uno. It in
 ## 🏷️ Tags
 
 `Arduino` `Robotics` `IR Sensors` `Ultrasonic` `Servo Motor` `Autonomous Robot` `Obstacle Avoidance`
-
-## 📜 License
-
-MIT License
