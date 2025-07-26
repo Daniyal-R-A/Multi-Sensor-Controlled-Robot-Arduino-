@@ -32,7 +32,6 @@ int leftIRSensorValue;
 
 void setup()
  {//This sets frequecny as 7812.5 hz.
-  // TCCR0B = TCCR0B & B11111000 | B00000010 ;
 
   servo.attach(servoPin); // ServoMotor
   servo.write(90);
@@ -64,9 +63,6 @@ void setup()
   ultraSonic();
   Serial.print("Distance : ");
   Serial.println(distance);
-  // Serial.print("break");
-  
-  // changeDirection(char(command_detect));
 
   if (distance < 8)
   {
@@ -109,16 +105,6 @@ void setup()
     }
     else if(leftIRSensorValue == LOW && rightIRSensorValue == LOW){
       stop();
-    //    for(angle = 0; angle < 90; angle++) {
-    //     servo.write(angle);
-    //     delay(15);
-    // }
-    
-    // //now scan back from 180 to 0 degrees
-    // for(angle = 90; angle > 0; angle--) {
-    //     servo.write(angle);
-    //     delay(15);
-    // }
     }
   }
   }
@@ -136,34 +122,15 @@ void ultraSonic(){
 
     duration = pulseIn(echo, HIGH);
     distance = duration * 0.034 / 2;
-    // Serial.println(distance);
-
-  // digitalWrite(trig, HIGH);
-  // delayMicroseconds(10);
-  // digitalWrite(trig, LOW);
-  // time = pulseIn(echo, HIGH);
-  // distance = time * 0.034 / 2; // in centimeters
-  // // if (distance<8){
-  //   stop();
-  //   // delay(10);
-  //   // back(118, 102);
-  //   // delay(100);
-  // }
-  // //Serial.print("Distance : ");
-  // //Serial.println(distance);
-  
 }
 void obstacle_avoiding(){
-    // stop();
-    // delay(1500);
+
     stop();
     delay(500);
     back(90,90);
     delay(150);
     rotate1(95,95);
     delay(241);
-    // right(80);
-    // delay(1000);
     straight(108,109);
     delay(725);
     rotate2(95,95);
@@ -178,13 +145,7 @@ void obstacle_avoiding(){
       midIRSensorValue = digitalRead(IR_SENSOR_MID);
       leftIRSensorValue = digitalRead(IR_SENSOR_LEFT);
       straight(108,109);
-      // delay(400);
-      // stop();
-      // delay(200);
     }
-    // delay(235);
-    // left(80);
-    // delay(500);
 }
 void straight(int Rspeed,int Lspeed){
   analogWrite(enableRightMotor, abs(Rspeed));
